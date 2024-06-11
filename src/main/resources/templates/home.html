@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <!-- BOOTSTRAP -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/home/home.css" />
+    <link rel="stylesheet" type="text/css" href="/css/home/editprofile.css" />
+    <link rel="stylesheet" type="text/css" href="/css/realiste/docker_font.css" />
+    <link rel="stylesheet" type="text/css" href="/css/iconDock/icon.css" />
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/x-icon" href="/static/icon/favicon.ico" />
+
+    <!-- JS -->
+    <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script> -->
+    <script type="text/javascript" src="/js/home.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script th:src="@{/js/search.js}"></script>
+
+
+</head>
+
+<body>
+    <!-- search bar -->
+    <!-- <div class="center middle">
+        <input type="text" id="searchInput">
+        <div id="searchResults"></div>
+    </div> -->
+    <th:block th:if="${ #lists.isEmpty(user.fusees)}">
+        <div class="fontnewmission">
+            <a class="centernewmission" data-th-href="@{/home/modeRealiste}"></a>
+            <p class="center">Nouvelle Mission</p>
+        </div>
+    </th:block>
+    <!-- ICON AVATAR EDIT PROFIL BEGIN -->
+    <div>
+        <p data-th-if="${user.avatar == null}">
+            <img src=" data:image/png;base64,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"
+                class="avatar" />
+        </p>
+        <p data-th-if="${user.avatar != null}">
+            <img data-th-src="@{ ${user.getUserAvatar} }" class="avatar" />
+        </p>
+        <!-- <div class="relative-wrapper-one"> -->
+        <a class="editer-le-profil" href="/home/settings">Editer le profil</a>
+        <!-- <div class="flex-wrapper-one"> -->
+        <p class="profile-name">[[${user.firstname}+' '+${user.lastname}]]</p>
+        <img alt="" class="line-1"
+            src="https://static.overlay-tech.com/assets/a4294948-3650-436d-9364-2c5dc211c1a3.png" />
+        <!-- </div> -->
+        <img alt="" class="grade"
+            src="https://static.overlay-tech.com/assets/109bebba-7664-4fe3-befc-4ff43e62897b.png" />
+        <!-- </div> -->
+    </div>
+    <!-- ICON AVATAR EDIT PROFIL END -->
+    <!-- PARAMETRE FUSEE BEGIN -->
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <th:block th:if="${not #lists.isEmpty(user.fusees)}">
+                    <h2 data-th-text="${user.fusees[0].nomFusee}"></h2>
+                    <p data-th-text="${user.fusees[0].historique}"></p>
+                    <p data-th-text="${user.fusees[0].infos}"></p>
+                    <p data-th-text="${user.fusees[0].propriete}"></p>
+                </th:block>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="center">
+        <th:block th:if="${not #lists.isEmpty(user.fusees)}">
+            <img data-th-src="@{ ${user.fusees[0].getIdIconFusee} }" class="shadow" />
+        </th:block>
+    </div>
+    <!-- PARAMETRE FUSEE END -->
+    <th:block th:if="${not #lists.isEmpty(user.fusees)}">
+        <a class="btn-mission" data-th-href="@{/home/fusee/{id}(id=${user.fusees[0].getId()})}">
+            <p>Lancer la mission</p>
+        </a>
+    </th:block>
+
+
+
+    <!--  MODAL CHOIX DE MISSION BEGIN-->
+    <th:block th:if="${not #lists.isEmpty(user.fusees)}">
+        <button type="button" class="buttonAtelier" id="myBtn">Atelier</button>
+    </th:block>
+    <div id="myModal" class="modal">
+        <div class="modal-content2">
+            <p>
+                <span class="title">MODE DE MISSION</span>
+                <span class="close">&times;</span>
+            </p>
+            <!-- forms pour ajouter le nom de mission a faire  -->
+
+            <a href="/home/modeAventure">
+                <button type="button" class="btn-aventure">Mode Aventure</button>
+            </a>
+            <a href="/home/modeRealiste">
+                <button type="button" class="btn-realiste">Mode Realiste</button>
+            </a>
+        </div>
+    </div>
+    <!--  MODAL CHOIX DE MISSION BEGIN-->
+
+    <!-- GENERAL BEGIN -->
+    <div class="component-1"></div>
+    <div class="general-two">
+        <a data-th-href="@{/home}">
+            <img alt="" class="vector"
+                src="https://static.overlay-tech.com/assets/fb8d08ac-7e15-4d19-9095-5af0fc53c2f7.svg" />
+            <p class="general">Général</p>
+        </a>
+    </div>
+    <a data-th-href="@{/home/modeRealiste}">
+        <div class="atelier-two">
+            <img alt="" class="construire"
+                src="https://static.overlay-tech.com/assets/4c85eefd-a067-457a-8b8a-761d63f87346.png" />
+            <p class="atelier">Atelier</p>
+        </div>
+    </a>
+    <a data-th-href="@{/home/logout}">
+        <div class="logout-three">
+            <img alt="" class="logout"
+                src="https://static.overlay-tech.com/assets/2f69ae06-c18d-41dd-b99b-35c24f8a1ae7.png" />
+            <p class="logout-two">Logout</p>
+        </div>
+    </a>
+    <!-- GENERAL END -->
+    <!-- DOCKER BEGIN -->
+    <div class="dock-perso">
+        <div class="dock-background-strip-perso"></div>
+
+        <img alt="" class="dock-container-perso"
+            src="https://static.overlay-tech.com/assets/0c48c221-2a93-4019-91b5-a530b39d0130.svg" />
+        <!-- <a class="dropdown-item" data-th-href="@{/home/logout}"></a> -->
+
+    </div>
+
+    <!-- DOCKER END -->
+
+</body>
+
+</html>

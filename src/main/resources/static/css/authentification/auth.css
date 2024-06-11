@@ -1,0 +1,266 @@
+/* https: //getbootstrap.com/docs/4.0/examples/signin/signin.css */
+body {
+    background-image: url("fondspatial.jpg");
+    /*background-color: red;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+    float: left;
+    position: relative;
+    left: 15%;
+    height: 20%;
+    vertical-align: bottom;
+    
+
+}
+body * {
+    margin-bottom: 1vh;
+  }
+
+div.tx{
+    float: left;
+    position: relative;
+    left: -70%;
+}
+#astro {
+position: relative;  
+background: url("Astro.jpg");
+background-position: center bottom, left top;
+background-repeat: no-repeat;
+}
+#tx {
+float: left;
+left: 50px;
+}
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+    position: left;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+
+}
+
+.form-signin .checkbox {
+    font-weight: 400;
+    
+}
+
+.form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    
+    padding: 10px;
+    font-size: 16px;
+<<<<<<< HEAD
+    
+    position: left;
+=======
+    /* font-
+position: left; */
+>>>>>>> 9629ae9e911e4cb4be2f3a55dc1c5809120c370e
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+    
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.form-signin-h4{
+    width: 579px;
+    height: 92px;
+    
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 43px;
+    line-height: 107%;
+    
+    /* or 107% */
+    letter-spacing: -0.03em;
+    
+    color: #F5F5F5;
+    
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+.form-signin-h2{
+width: 579px;
+height: 130px;
+font-family: 'Exo 2';
+font-style: normal;
+font-weight: 600;
+font-size: 93px;
+line-height: 140%;
+  color:#FF2566;
+/* or 130px */
+text-transform: capitalize;
+flex: none;
+order: 1;
+flex-grow: 0;
+    /*text-align: center;
+  
+    margin-top:-15px;
+    font: Exo2;
+    text-size-adjust: 93px;*/
+}
+.form-login-h2{
+    text-align: center;
+    color:#8a51a5;
+    margin-top:-15px;
+    padding-top:20px;
+}
+.form-control{
+    width :300px;
+       
+}
+a {
+    font-weight: bold;
+}
+p{
+    font-weight: bold;
+}
+button {
+    margin: 20px;
+    letter-spacing: 0px;
+
+  }
+.custom-btn {
+    width: 300px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    /* font-family: 'Lato', sans-serif; */
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    margin-bottom:10px;
+    margin-top: 10px;
+    
+}
+input {
+    color: white!important;
+    background-color:transparent!important;
+  }
+  
+.text-color {
+    color: #ff2566!important;
+}
+.lien-sans-soulignement {
+    text-decoration: none;
+  }
+.btn-signIn {
+    border: none;
+    color: #000;
+    margin-left:0%;
+    text-transform: uppercase;
+    margin-bottom:-10px;
+}
+p{
+    color: floralwhite;
+}
+.btn-signIn{
+    border: none;
+    color: #000;
+    margin-left:0%;
+    text-transform: uppercase;
+    margin-bottom:-10px;
+    background: #C42051;
+    border-radius: 50px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 154%;
+
+/* or 38px */
+
+
+
+
+
+}
+
+.btn-LoginIn{
+    border: none;
+    /* color: #000; */
+    margin-left:0%;
+    text-transform: uppercase;
+    margin-bottom:-10px;
+    background: #C42051;
+    border-radius: 50px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    /* line-height: 154%; */
+
+/* or 38px */
+
+
+
+
+
+}
+
+
+.signInLink{
+    color : #8a51a5;
+    text-decoration: none;
+}
+
+.signInText{
+    margin-left: 10%;
+    margin-top:10%;
+}
+button.custom-btn {
+font-family: 'Work Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 15px;
+line-height: 154%;
+
+/* or 38px */
+
+color: #FFFFFF;
+    text-align: center;
+    padding: 0px;
+}
+
+
+.card{
+    margin-top:5%;
+    padding-left:20px;
+    padding-right:20px; 
+    background-color: white; 
+    background-color:rgba(255, 255, 255, 0.3);  
+}
+.alignform{
+    margin-right:30px;
+}

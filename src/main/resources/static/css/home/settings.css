@@ -1,0 +1,93 @@
+
+.shadow {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.profile-tab-nav {
+  min-width: 250px;
+}
+
+.tab-content {
+  flex: 1;
+}
+
+.form-group  {
+  margin-bottom: 1.5rem;
+}
+
+textarea {
+  resize: none;        
+}
+
+.nav-pills a.nav-link {
+  padding: 15px 20px;
+  border-bottom: 1px solid #ddd;
+  border-radius: 0;
+  color: #333;
+}
+
+.nav-pills a.nav-link i {
+  width: 20px;
+}
+
+.img-circle img {
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  border: 5px solid #fff;
+}
+
+.label-file {
+  /* background-color: purple;
+  border-radius: 45% ; */
+  cursor: pointer;
+  color: whitesmoke;
+  font-family: "Lato" ;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.label-file:hover {
+  color: #25a5c4;
+}
+
+.input-file {
+  display: none;
+  opacity: 0;
+}
+
+.social-network {
+  display: flex;
+  width: 75%;
+  margin: 25px;
+}
+
+.social-network-container {
+  margin-top: 55px;
+}
+
+input[type="text"]{
+  background: transparent;
+  border-color: whitesmoke;
+}
+ /* Couleur du texte pour les liens non visités */
+ a.nav-link {
+  color: white;
+  font-size: 16px;
+  width: 150px;
+}
+
+/* Couleur du texte pour les liens visités */
+a.nav-link:visited {
+  color: white;
+}
+
+/* Couleur du texte pour les liens au survol de la souris */
+a.nav-link:hover {
+  color: pink;
+}
+
+/* Couleur du texte pour les liens cliqués */
+a.nav-link:active {
+  color: darkpink;
+}

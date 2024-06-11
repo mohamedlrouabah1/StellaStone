@@ -1,0 +1,96 @@
+.component-1 {
+  padding: 0 35px 12px 32px;
+  left: 27%;
+  bottom: 0.5px;
+  position: absolute;
+  border-bottom: 4px solid whitesmoke;
+  z-index: 1;
+}
+.general-two {
+  position: absolute;
+  left: 28%;
+  bottom: 1%;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+.general-two > .general {
+  margin-top: 2px;
+}
+.vector {
+  width: 100%;
+  align-self: stretch;
+  object-fit: cover;
+}
+.general {
+  height: 24%;
+  font-family: "Lato";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 12px;
+  color: rgba(148, 153, 195, 1);
+  align-self: stretch;
+}
+
+/* atelier  */
+
+.component-2 {
+    padding: 0 35px 12px 32px;
+    left: 44%;
+    bottom: 0.5px;
+    position: absolute;
+    border-bottom: 4px solid whitesmoke;
+    z-index: 1;
+  }
+.atelier-two {
+  position: absolute;
+  left: 45%;
+  bottom: 1%;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 1;
+
+}
+.atelier-two > .atelier {
+    margin-top: 2px;
+  }
+.construire {
+  width: 90.7%;
+  height: 65.31%;
+  margin-bottom: 5px;
+}
+.atelier {
+  width: 95.35%;
+  height: 24.49%;
+  font-family: "Lato";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 12px;
+  color: rgba(148, 153, 195, 1);
+  margin-left: 2px;
+}
+/* logout */
+
+.logout-three {
+  position: absolute;
+  left: 65%;
+  bottom: 1%;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+
+}
+.logout {
+  width: 97.5%;
+  height: 64%;
+  margin-bottom: 6px;
+}
+.logout-two {
+  height: 24%;
+  font-family: "Lato";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 12px;
+  color: rgba(148, 153, 195, 1);
+  align-self: stretch;
+}

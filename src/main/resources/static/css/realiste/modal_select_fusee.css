@@ -1,0 +1,196 @@
+/*******************************
+* MODAL AS LEFT/RIGHT SIDEBAR
+* Add "left" or "right" in modal parent div, after class="modal".
+* Get free snippets on bootpen.com
+*******************************/
+.modal.left .modal-dialog,
+.modal.right .modal-dialog {
+  position: fixed;
+  margin: auto;
+  width: 320px;
+  top : -5%;
+  height: 110%;
+  -webkit-transform: translate3d(0%, 0, 0);
+  -ms-transform: translate3d(0%, 0, 0);
+  -o-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+}
+
+.modal.left .modal-content,
+.modal.right .modal-content {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.modal.left .modal-body,
+.modal.right .modal-body {
+  padding: 15px 15px 80px;
+}
+
+/*Left*/
+.modal.left.fade .modal-dialog {
+  left: -320px;
+  -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+  -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+  -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+  transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+
+.modal.left.fade.in .modal-dialog {
+  left: 0;
+}
+
+/* ----- MODAL STYLE ----- */
+.modal-content {
+  background-color: rgba(30, 30, 30, 1);
+  border-radius: 0px 25px 25px 0px;
+  padding: 1px 1px 56px 19.5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.modal-header {
+  border-bottom-color: #eeeeee;
+  background-color: rgba(30, 30, 30, 1);
+}
+.modal-title {
+  /* position: fixed;
+  top: 10%;
+  left: 10%; */
+  font-family: "Exo 2" sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+/* ------------- SIDE BAR CLOSE TEMPLATE--------------  */
+.collapse-side-template {
+  height: 100%;
+  width: 3%;
+  background-color: rgba(49, 47, 48, 1);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.collapse-icon {
+  width: 80%;
+  height: 4%;
+  padding: 0 5px 0 0;
+  z-index: 1;
+  align-items: flex-start;
+  position: absolute;
+  background-color: black;
+  border-radius: 100px ;
+  border-color: #eeeeee;
+  left: 3px;
+  top: 26px;
+}
+.collapse-arrow {
+	width: 76.09%;
+	height: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0;
+}
+.collapse-arrow-two {
+  width: 76.09%;
+  height: 100%;
+  position: absolute;
+  left: 8px;
+  top: 0;
+}
+
+.collapse-icon:focus {
+  outline: 0;
+}
+
+.collapse-close{
+  width: 13%;
+  height: 5%;
+  padding: 0 5px 0 0;
+  z-index: 1;
+  align-items: flex-start;
+  position: absolute;
+  background-color: black;
+  border-radius: 100px ;
+  border-color: #eeeeee;
+  right: 5px;
+  top: 6px;
+}
+
+.spacex-10 {
+  font-family: "Exo 2" sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 15px;
+  color: rgba(217, 217, 217, 1);
+  text-align: center;
+
+}
+
+.rectangle {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: #ff175d69;
+  box-shadow: 0px 0px 5px 1px rgba(238, 17, 127, 0.671);
+  opacity: 1;
+  text-align: center;
+}
+.rectangle2 {
+  position: absolute;
+  left : 130px;
+  width: 100px;
+  height: 100px;
+  background-color: #ff175d69;
+  box-shadow: 0px 0px 5px 1px rgba(238, 17, 127, 0.671);
+  opacity: 1;
+  text-align: center;
+}
+
+.fusee-clickable {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.fusee-clickable:hover {
+  transform: scale(1.1);
+}
+
+.bouton {
+  background-color: deeppink;
+  border-radius: 40px;
+  position :absolute;
+  left:25%;
+  bottom: 5%; 
+  width: 50%;
+  height: 45px;
+  align-items: center;
+}
+.equiper {
+  font-family: "Exo 2" sans serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 18px;
+  color: whitesmoke;
+  flex: 1;
+  align-self: stretch;
+  text-align: center;
+}
+
+.bouton:hover {
+  background-color: rgba(124, 38, 110, 0.801);
+}
+
+.bouton:active {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.bouton:hover {
+  transform: scale(1.1);
+}

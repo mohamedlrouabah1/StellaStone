@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+
+  <link rel="stylesheet" type="text/css" href="/css/authentification/auth.css" />
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/x-icon" href="/src/main/resources/static/icon/favicon.ico" />
+
+
+  <!-- TITLE -->
+  <title>StellaStone</title>
+</head>
+
+<body>
+  <div class="">
+    <form class="form-signin" method="post" data-th-action="@{/signIn}">
+      <div class="alignform">
+        <h2 class="form-signin-h2">StellaStone</h2>
+        <h4 class="form-signin-h4">Plus qu'une simulation...<br />Une expérience.</h4>
+        </h4>
+        <div data-th-if="${error != null}">
+          <div class="alert alert-danger" role="alert" data-th-text="${error}"></div>
+        </div>
+        <p>
+          Pseudonyme
+          <input type="text" id="username" name="username" class="form-control" placeholder="" required autofocus />
+        </p>
+        <p>
+          Email
+          <input type="text" id="email" name="email" class="form-control" placeholder="" required autofocus />
+        </p>
+        <p>
+          MOT DE PASSE
+          <input type="password" id="password" name="password" class="form-control" placeholder="" required pattern=".{8,}" title="Le mot de passe doit comporter au moins 8 caractères." />
+        </p>
+        <p>
+          Déjà astronaute ?
+          <a class="signInLink text-color" href="/logIn"> Se Connecter </a>
+        </p>
+        <input name="_csrf" type="hidden" value="58e0745e-d3fc-4a4c-a38f-803d8d8b1a0f" />
+        <button class="custom-btn btn-signIn" type="submit">
+          Décollage ...
+        </button>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>

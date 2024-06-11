@@ -1,0 +1,14 @@
+# EMAIL CONFIGURATION #
+spring:
+  mail:
+    host: smtp.gmail.com
+    username: gustdnz42i@gmail.com
+    password: yrhcoegfwgjxbmtv
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+

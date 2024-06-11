@@ -1,0 +1,41 @@
+
+.avatar {
+  position: relative;
+  width: 4%;
+  left: 2%;
+  height: 4%;
+  border-radius: 50%;
+}
+
+.editer-le-profil {
+  color: rgba(255, 37, 102, 1);
+  left: 7%;
+  top: 5%;
+  position: absolute;
+  font-family: "Lato" ;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18px;
+}
+/* This is the project stylesheet */
+
+.profile-name {
+  color: whitesmoke;
+  position: absolute;
+  left: 7%;
+  top: 1%;
+  font-family: "Lato" ;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18px;
+}
+.line-1 {
+  position: absolute;
+  left: 7%;
+  top: 4%;
+}
+.grade {
+  position: absolute;
+  left: 19%;
+  top: 0%;
+}

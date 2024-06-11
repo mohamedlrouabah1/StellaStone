@@ -1,0 +1,26 @@
+.sidebar {
+    height: 100%; /* Hauteur à 100% */
+    width: 200px; /* Largeur de la sidebar */
+    position: fixed; /* Position fixe pour rester visible en scrolling */
+    top: 0; /* Position en haut */
+    left: 0; /* Position à gauche */
+    background-color: #f1f1f1; /* Couleur de fond */
+    padding-top: 20px; /* Marge haute pour les liens */
+  }
+  
+  .sidebar a {
+    display: block; /* Affichage en block pour prendre toute la largeur */
+    color: #000; /* Couleur du texte */
+    padding: 8px 16px; /* Padding pour l'espace autour du texte */
+    text-decoration: none; /* Enlever le soulignement par défaut */
+  }
+  
+  .sidebar a:hover {
+    background-color: #555; /* Couleur de fond au survol */
+    color: #fff; /* Couleur du texte au survol */
+  }
+  body {
+    background-image: url("src\main\resources\static\icon\fond_aventure.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

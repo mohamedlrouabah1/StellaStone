@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Stella Stone</title>
+    <!-- BOOTSTRAP -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/realiste/docker_font.css" />
+    <link rel="stylesheet" type="text/css" href="/css/realiste/head_font.css" />
+    <link rel="stylesheet" type="text/css" href="/css/realiste/modal_select_fusee.css" />
+    <link rel="stylesheet" type="text/css" href="/css/iconDock/icon.css" />
+
+    <link rel="stylesheet" type="text/css" href="/css/realiste/popup.css" />
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/x-icon" href="/static/icon/favicon.ico" />
+</head>
+
+<body>
+    <!-- HEAD MODE REALISTE BEGIN -->
+    <div class="dock-haut">
+        <div class="dock-background-strip-perso-up"></div>
+        <img alt="" class="dock-container-haut"
+            src="https://static.overlay-tech.com/assets/8d9bc554-7fd4-441e-9d40-de31e4db18d0.svg" />
+        <p class="mode-realiste-font-perso">MODE RÉALISTE</p>
+    </div>
+    <!-- HEAD MODE REALISTE END -->
+    <!-- LEFT SIDE BAR BEGIN -->
+    <div>
+        <div class="collapse-side-template">
+            <button type="button" class="btn collapse-icon" data-toggle="modal" data-target="#myModal">
+                <img alt="" class="collapse-arrow"
+                    src="https://static.overlay-tech.com/assets/5e6df642-85ba-4614-b575-7dbce5402c4b.png" /><img alt=""
+                    class="collapse-arrow-two"
+                    src="https://static.overlay-tech.com/assets/63714b8a-87ae-4786-8f67-148cbc39df77.png" />
+            </button>
+        </div>
+        <!-- LEFT SIDE BAR END -->
+        <!-- FUSEE PICKER MODAL BEGIN -->
+        <th:block>
+
+            <div class="modal left fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn collapse-close" data-dismiss="modal" aria-label="Close">
+                                <img alt="" class="collapse-arrow" aria-hidden="true"
+                                    src="https://static.overlay-tech.com/assets/ec71c6c6-4d49-4a5b-8115-0e0c419d8f30.png" />
+                                <img alt="" class="collapse-arrow-two"
+                                    src="https://static.overlay-tech.com/assets/b20efe17-5728-41ae-8819-5e8d388d6209.png" />
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">FUSÉES DISPONIBLES</h4>
+                        </div>
+                        <div class="modal-body">
+                            <th:block>
+                                <div th:each="f : ${allFusee}">
+                                    <div th:if="${f.getId()%2 == 0} ">
+                                        <p class="rectangle fusee-clickable" data-toggle="modal"
+                                            data-target="#fuseeModal">
+                                            <img th:src="@{${f.getIdIconFusee()}}" class="shadow" width="80"
+                                                height="80" />
+                                            <a class="spacex-10" href="#">[[${f.getNomFusee()}]]</a>
+                                            <input type="hidden" class="fusee-infos" th:value="${f.getInfos()}" />
+                                            <input type="hidden" class="fusee-propriete"
+                                                th:value="${f.getPropriete()}" />
+                                            <input type="hidden" class="fusee-historique"
+                                                th:value="${f.getHistorique()}" />
+                                            <input type="hidden" class="fusee-id" th:value="${f.getId()}" />
+                                            <input type="hidden" class="fusee-image" th:value="${f.getIdIconFusee()}" />
+                                        </p>
+                                    </div>
+                                    <div th:if="${f.getId()%2 != 0}">
+                                        <p class="rectangle2 fusee-clickable" data-toggle="modal"
+                                            data-target="#fuseeModal">
+                                            <img th:src="@{${f.getIdIconFusee()}}" class="shadow" width="80"
+                                                height="80" />
+                                            <a class="spacex-10" href="#">[[${f.getNomFusee()}]]</a>
+                                            <input type="hidden" class="fusee-infos" th:value="${f.getInfos()}" />
+                                            <input type="hidden" class="fusee-propriete"
+                                                th:value="${f.getPropriete()}" />
+                                            <input type="hidden" class="fusee-historique"
+                                                th:value="${f.getHistorique()}" />
+                                            <input type="hidden" class="fusee-id" th:value="${f.getId()}" />
+                                            <input type="hidden" class="fusee-image" th:value="${f.getIdIconFusee()}" />
+                                        </p>
+                                    </div>
+                                </div>
+                            </th:block>
+                        </div>
+                        <!-- Formulaire pour équiper une fusée -->
+                        <form method="post" th:action="@{/home/modeRealiste/equiperfusee}">
+                            <input type="hidden" name="idFusee" id="equip-fusee-input" value="" />
+                            <button class="bouton" type="submit">
+                                <p class="equiper">EQUIPER</p>
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </th:block>
+        <!-- FUSEE PICKER MODAL END -->
+
+        <!-- MODAL FUSEE BEGIN -->
+        <div class="rectangle-10" id="fuseeModal">
+            <div class="custom-modal-content">
+                <div class="custom-modal-header">
+                    <h4 class="custom-modal-title" id="fuseeModalLabel"></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="custom-modal-body">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#infos">Infos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#propriete">Propriétés</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#historique">Historique</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="infos" class="tab-pane fade show active">
+                            <p class="custom-modal-infos"></p>
+                        </div>
+                        <div id="propriete" class="tab-pane fade">
+                            <p class="custom-modal-propriete"></p>
+                        </div>
+                        <div id="historique" class="tab-pane fade">
+                            <p class="custom-modal-historique"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="center">
+                <img id="fusee-image" src="#" alt="Fusee Image">
+            </div>
+        </div>
+
+
+
+
+        <!-- MODAL FUSEE END -->
+        <div class="rectangle-10" id="fuseeModal">
+            <div class="custom-modal-content">
+                <div class="custom-modal-header">
+                    <h4 class="custom-modal-title" id="fuseeModalLabel"></h4>
+                </div>
+                <div class="custom-modal-body">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#infos">Infos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#propriete">Propriétés</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#historique">Historique</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="infos" class="tab-pane fade show active">
+                            <p class="custom-modal-infos"></p>
+                        </div>
+                        <div id="propriete" class="tab-pane fade">
+                            <p class="custom-modal-propriete"></p>
+                        </div>
+                        <div id="historique" class="tab-pane fade">
+                            <p class="custom-modal-historique"></p>
+                        </div>
+                    </div>
+                    <p id="equip-fusee-btn"></p>
+                </div>
+            </div>
+        </div>
+        <!-- AJOUT FUSSE DEV BEGIN -->
+        <div>
+            <!-- Bouton qui ouvre le modal -->
+            <button type="button" class="btn btn-primary dev" data-toggle="modal" data-target="#addRocketModal">
+                Ajouter une fusée
+            </button>
+            <!-- Modal pour ajouter une fusée -->
+            <div class="modal fade" id="addRocketModal" tabindex="-1" role="dialog"
+                aria-labelledby="addRocketModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addRocketModalLabel">Ajouter une fusée</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Formulaire pour ajouter une fusée -->
+                            <form th:action="@{/home/modeRealiste/addFusee}" method="post"
+                                enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="nomFusee">Nom de la fusée</label>
+                                    <input type="text" class="form-control" id="nomFusee" name="nomFusee" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="infos">Informations sur la fusée</label>
+                                    <textarea class="form-control" id="infos" name="infos" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="propriete">Propriété de la fusée</label>
+                                    <input type="text" class="form-control" id="propriete" name="propriete">
+                                </div>
+                                <div class="form-group">
+                                    <label for="historique">Historique de la fusée</label>
+                                    <textarea class="form-control" id="historique" name="historique"
+                                        rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="image">Image de la fusée</label>
+                                    <input type="file" class="form-control-file" id="image" name="image">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Ajouter la fusée</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- AJOUT FUSSE DEV END -->
+
+
+        <!-- DOCKER SELECTE ATELIER BEGIN -->
+        <div class="general-two">
+            <a data-th-href="@{/home}">
+                <img alt="" class="vector" src="https://i.imgur.com/6Wh7GX5.png" />
+                <p class="general">Général</p>
+            </a>
+        </div>
+        <div class="component-2"></div>
+        <a data-th-href="@{/home/modeRealiste}">
+            <div class="atelier-two">
+                <img alt="" class="construire" src="https://i.imgur.com/16Oof2V.png" />
+                <p class="atelier">Atelier</p>
+            </div>
+        </a>
+
+        <a data-th-href="@{/home/logout}">
+            <div class="logout-three">
+                <img alt="" class="logout"
+                    src="https://static.overlay-tech.com/assets/2f69ae06-c18d-41dd-b99b-35c24f8a1ae7.png" />
+                <p class="logout-two">Logout</p>
+            </div>
+        </a>
+        <!-- DOCKER SELECTE ATELIER END -->
+        <!-- DOCKER BEGIN -->
+        <div class="dock-perso">
+            <div class="dock-background-strip-perso"></div>
+            <img alt="" class="dock-container-perso"
+                src="https://static.overlay-tech.com/assets/0c48c221-2a93-4019-91b5-a530b39d0130.svg" />
+        </div>
+        <!-- DOCKER END -->
+        <!-- SCRIPTS -->
+        <script>
+            $(document).ready(function () {
+                $('.fusee-clickable').click(function () {
+                    var fuseeInfos = $(this).find('.fusee-infos').val();
+                    var fuseePropriete = $(this).find('.fusee-propriete').val();
+                    var fuseeHistorique = $(this).find('.fusee-historique').val();
+                    var fuseeId = $(this).find('.fusee-id').val();
+                    var modalTitle = $(this).find('a').html();
+
+                    $('#fuseeModalLabel').html(modalTitle);
+                    $('.custom-modal-infos').html(fuseeInfos);
+                    $('.custom-modal-propriete').html(fuseePropriete);
+                    $('.custom-modal-historique').html(fuseeHistorique);
+                    $('#equip-fusee-input').val(fuseeId);
+
+                    // Récupération de l'élément HTML qui contiendra l'image de la fusée
+                    let fuseeImage = document.getElementById("fusee-image");
+
+                    // Mise à jour de l'attribut "src" de l'image pour récupérer l'image de la fusée
+                    fuseeImage.src = $(this).find('.fusee-image').val();
+                });
+            });
+
+        </script>
+
+
+    </div>
+</body>
+
+</html>

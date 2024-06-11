@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "spring.http.encoding.mime-types",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.http.encoding.mime-types'"
+  },
+  {
+    "name": "spring.http.encoding.force-response-type",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.http.encoding.force-response-type'"
+  },
+  {
+    "name": "spring.mvc.mediaTypes.css",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.mvc.mediaTypes.css'"
+  }
+]}

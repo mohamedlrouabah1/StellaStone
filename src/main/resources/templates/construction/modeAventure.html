@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="/css/aventure/aventure.css" />
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" href="/css/iconDock/icon.css" />
+<!-- FAVICON -->
+<link rel="icon" type="image/x-icon" href="/icon/favicon.ico" />
+
+<!-- TITLE -->
+<title>StellaStone</title>
+</head>
+
+<body>
+
+
+
+
+<div class="w3-sidebar w3-bar-block w3-collaps w3-container " id="mySidebar" style="width:4%;background-color:black;display: block;">
+<div id="ok"><button id="button" class="w3-button w3-round w3-teal w3-xlarge w3-right "onclick="w3_open()" style="background-color: dimgray!important;">>></button></div>
+
+
+<div id="hbar"class="w3-container w3-dark-grey " style="display:none;">
+<a href="#" id="retour" class="back-button" style="display:none;"onclick="menu()">Retour</a>
+    <h4>PERSONNALISER LA FUSÉE</h4>
+
+</div>
+<div><button class="w3-button w3-teal w3-xlarge w3-right w3-hide-large">&#9776;</button></div>
+
+<!-- <img src="/css/aventure/fond_aventure.png"> -->
+ <div id="table" >
+
+</div>
+
+<div id="fusee-info" style="display: none;" class="panel w3-round-xlarge">
+    <h1 style="color:white; text-align: center;">FUSEE PERSONNALISER</h1>
+    <!-- <hr style="margin-right: 5%; margin-left: 5%; border-color: white;border-style:solid;"> -->
+    <ul style="background-color: black;">
+
+        <li>
+            <div class="w3-dark-grey w3-round">
+                <div style="color: white;background-color: black;text-align: left;">Vitess d'inertie</div>
+                <div class="w3-container w3-round w3-purple" style="width:65%;">65%</div>
+            </div>
+        </li>
+
+        <li>
+            <div class="w3-dark-grey w3-round">
+                <div style="color: white;background-color: black;text-align: left;">Perigee</div>
+                <div class="w3-container w3-round w3-purple " style="width:45%">45%</div>
+            </div>
+           
+        </li>
+        <li>
+            <div class="w3-dark-grey w3-round">
+                <div style="color: white;background-color: black;text-align: left;">Etagement</div>
+                <div class="w3-container w3-round  w3-purple" style="width:25%">25%</div>
+            </div>
+        </li>
+        <li>
+            <div class="w3-dark-grey w3-round">
+                <div style="color: white;background-color: black;text-align: left;">Inclinaison</div>
+                <div class="w3-container w3-round  w3-purple" style="width:80%">80%</div>
+            </div>
+        </li>
+        <li>
+            <div class="w3-dark-grey w3-round">
+                <div style="color: white;background-color: black;text-align: left;">Apogee</div>
+                <div class="w3-container w3-round  w3-purple" style="width:25%">25%</div>
+            </div>
+        </li>
+        <li>
+            <div class="w3-dark-grey w3-round">
+                <div style="color: white;background-color: black;text-align: left;">Range to ISS</div>
+                <div class="w3-container w3-round w3-purple " style="width:25%">25%</div>
+            </div>
+        </li>
+
+
+
+
+
+
+
+    </ul>
+</div>
+</div>
+</div>
+<script>
+
+var button = document.getElementById('button'); // Assume element with id='button'
+function updateRow(x) {
+    var squares = document.querySelectorAll(".square");
+    var numSquares = squares.length;
+    var activeIndex = Math.min(Math.max(x, 0), numSquares);
+
+    for (var i = 0; i < numSquares; i++) {
+        if (i < activeIndex) {
+            squares[i].style.backgroundColor = "#f00";
+        } else {
+            squares[i].style.backgroundColor = "#fff";
+        }
+    }
+}
+function item(){
+
+}
+
+
+
+
+button.onclick = function () {
+    var div = document.getElementById("mySidebar");
+    if (div.style.width == "20%") {
+
+        w3_close();
+    }
+    else {
+        div.style.display = 'block';
+        w3_open();
+
+    }
+}
+function selection(piece) {
+    const htmlString = `<p>${piece}</p>`;
+    // e.preventDefault();
+//   var button = document.getElementById("myButton");
+//   button.removeEventListener("click", menu); // Remove the old click event listener
+//   button.addEventListener("click", menu()); // Add the new click event listener
+
+  var myText = document.getElementById("table").value;
+ document.getElementById("table").innerHTML = '<div class="w3-display-container w3-black" style="height:10%"> <div class="" > <a href="#" "> <figure><img class ="thumb1"src="/css/aventure/item.png" alt=""><figcaption>MOTEUR</figcaption></figure></a>  <div class="w3-display-container w3-black" > <div style="width: 30%;margin: 0 auto;margin-bottom: 40px;margin-top:80px">PROPRIÉTÉS</div> <div class="row"> <div style="text-indent: 40px;"> DURABILITÉ</div> <div class="square"></div> <div class="square"></div> <div class="square"></div> <div class="square"></div> <div class="square"></div> <div class="square"></div> </div> </div> <div class="w3-display-container w3-black"> <div class="row"> <div style="text-indent: 40px;">RÉSISTANCE</div> <div class="square"></div> <div class="square"></div> <div class="square"></div> <div class="square"></div> <div class="square"></div> <div class="square"></div> </div> </div> <div class="w3-display-container w3-black"> <div class="row"> <div style="text-indent: 40px;">CAPACITÉ</div> <div class="square"></div> <div class="square"></div> <div class="square"></div> <div class="square"></div> <div class="square"></div> <div class="square"></div> </div> </div> <div class="w3-display-container w3-black" style="display: flex; justify-content: center; align-items: center;"> <div><button style="margin-top:80px; color: white;background-color: #FF2566;border-radius: 30px; width: 150px; height: 50px;" onclick="menu()">ÉQUIPER</button></div> </div> </div> ';
+ updateRow(4);
+    document.getElementById("retour").style.display = "block";
+}
+function myfunction() {
+    // e.preventDefault();
+    var myText = document.getElementById("table").value;
+    document.getElementById("table").innerHTML = '<div style="color : white">MENU EN CONSTRUCTION </div>';
+}
+function menu() {
+    // e.preventDefault();
+
+    var myText = document.getElementById("table").value;
+    document.getElementById("table").innerHTML = '<table><tr><td><a href="#"onclick="selection()"><figure><img class ="thumb1"src="/css/aventure/item.png" alt=""><figcaption>MOTEUR</figcaption></figure></a></td><td><a href="#"onclick="selection()"><figure><img class ="thumb1"src="/css/aventure/item.png" alt=""><figcaption>MOTEUR</figcaption></figure></a></tr><tr><td><a href="#"onclick="selection()"><figure><img class ="thumb1"src="/css/aventure/item.png" alt=""><figcaption>MOTEUR</figcaption></figure></a></td><td><a href="#"onclick="selection()"><figure><img class ="thumb1"src="/css/aventure/item.png" alt=""><figcaption>MOTEUR</figcaption></figure></a></td></tr></table >'; //'<div class="w3-display-container w3-black"><div class=" w3-display-right" ><a href="#" onclick="selection()">  <img class="thumb1" src="/css/aventure/item.png" /></a></div><div class=" w3-display-left"><a href="#" onclick="selection()" >  <img class="thumb1" src="/css/aventure/item.png" /></a> </div> </div> <div class=" w3-green" ></div> <div class=" w3-display-right"> <a href="#"onclick="selection()"> <img class="thumb1" src="/css/aventure/item.png" /></a> </div> <div class=" w3-display-left"> <a href="#" onclick="selection()"> <img class="thumb1" src="/css/aventure/item.png" /></a> </div> </div><div class="w3-container"></div>';
+    document.getElementById("hbar").style.display = "block";
+    document.getElementById("retour").style.display = "none";
+
+}
+function setBlackSidebar() {
+    const sidebar = document.querySelector('#mySidebar');
+    sidebar.style.backgroundColor = 'black';
+    sidebar.style.color = 'black';
+    const sidebarChildren = sidebar.querySelectorAll('*');
+    sidebarChildren.forEach(child => {
+        if (child !== document.querySelector('#button')) {
+            child.style.display = 'none';
+        }
+    });
+    document.getElementById("ok").style.display = "block";
+}
+function setv() {
+    // const sidebar = document.querySelector('#mySidebar');
+
+    // const sidebarChildren = sidebar.querySelectorAll('*');
+    // sidebarChildren.forEach(child => {
+    //     if (child !== document.querySelector('#button')) {
+    //         child.style.display = 'block';
+    //     }
+    // });
+}
+
+
+function w3_open() {
+    document.getElementById("mySidebar").style.width = "20%";
+    // document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("fusee-info").style.display = "block";
+    document.getElementById("ok").style.display = "block"
+    document.getElementById("button").innerHTML ="<<"
+    menu();
+} 
+ document.getElementById("mySidebar").children.style.display = "block";
+
+
+function w3_close() {
+    document.getElementById("ok").style.display = "block"
+    document.getElementById("fusee-info").style.display = "none";
+    document.getElementById("mySidebar").style.width = "4%";
+    document.getElementById("hbar").style.display = "none";
+    document.getElementById("table").innerHTML ="";
+     document.getElementById("button").innerHTML = ">>"
+    // setBlackSidebar();
+    ;
+}
+
+
+
+// window.onload =w3_close();
+</script>
+
+<div class="general-two">
+<a data-th-href="@{/home}">
+    <img alt="" class="vector" src="https://i.imgur.com/6Wh7GX5.png" />
+    <p class="general">Général</p>
+</a>
+</div>
+<div class="component-2"></div>
+<a data-th-href="@{/home/modeRealiste}">
+<div class="atelier-two">
+    <img alt="" class="construire" src="https://i.imgur.com/16Oof2V.png" />
+    <p class="atelier">Atelier</p>
+</div>
+</a>
+
+<a data-th-href="@{/home/logout}">
+<div class="logout-three">
+    <img alt="" class="logout"
+        src="https://static.overlay-tech.com/assets/2f69ae06-c18d-41dd-b99b-35c24f8a1ae7.png" />
+    <p class="logout-two">Logout</p>
+</div>
+</a>
+<div class="dock-haut" style="top: -6%;left: 20%;position: fixed;">
+<div class="dock-background-strip-perso-up" style="top: 0%;left: 20%;position: fixed;"></div>
+<img alt="" class="dock-container-haut"
+    src="https://static.overlay-tech.com/assets/8d9bc554-7fd4-441e-9d40-de31e4db18d0.svg" />
+<p class="mode-realiste-font-perso"
+    style="top: 0%;left: 20%;color: white;text-size-adjust: 100;font-size: 35px;display: flex;justify-content: center;align-items: flex-start;margin-top: -11%;">
+    MODE AVENTURE</p>
+</div>
+<div class="dock-perso" style=" position: fixed;
+bottom: -6%;left: 20%;text-align: center;">
+<div class="dock-background-strip-perso"></div>
+<img alt="" class="dock-container-perso"
+    src="https://static.overlay-tech.com/assets/0c48c221-2a93-4019-91b5-a530b39d0130.svg" />
+</div>
+</body>
+
+</html>
